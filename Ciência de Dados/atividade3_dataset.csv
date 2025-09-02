@@ -1,0 +1,87 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from google.colab import drive
+drive.mount('/content/drive')
+path = '/content/drive/MyDrive/Ciencia de Dados/atividade3_dataset.csv'
+
+# Foi usado o sep para separar em linha e colunas, pois estava com ";" e tava tudo junto.
+df_csv = pd.read_csv("/content/drive/MyDrive/Ciencia de Dados/atividade3_dataset.csv", sep=";")
+
+  print(df_csv.head())
+# Com a leitura dos dados, nota-se que tem dados como: ID, nome, idade, cidade, produto, preço, quantidade e a data.
+# Algumas colunas possui tanto valores nulos, e duplicados.
+
+  print(df_csv.info())
+# Aqui mostra mais detalhado os dados, por exemplo: 510 linhas, 8 colunas, e quantos dados não nulos existem.
+# Com esse dados não nulos, ja da pra saber onde tem os ausentes.
+# Como exemplo: idade que possui 489 not null, ou seja, 21 valores ausentes.
+# Preço com 37 ausentes.
+# Preço com tipo object, ou seja, tem que fazer um conversão para numerico.
+
+  #VALORES NULOS EXISTENTES
+print(df_csv.isnull().sum())
+
+  # No tratamendo de valores ausentes, na idade vai entra a mediana, pois a variável é numérica contínua.
+df_csv['Idade'].fillna(df_csv['Idade'].median(), inplace=True)
+
+  # Verificação da coluna idade, 0 valores ausentes, acrescentados com mediana.
+df_csv['Idade'].isnull().sum()
+# Trocando o tipo da coluna idade para numeric.
+df_csv['Idade'] = pd.to_numeric(df_csv['Idade'], errors='coerce')
+
+# Trocando o tipo do preço, pois estava como object(texto). Agora fica como numérico.
+df_csv["Preço"] = pd.to_numeric(df_csv["Preço"], errors="coerce")
+# Tratar os valores ausentes, com mediana.
+df_csv['Preço'].fillna(df_csv['Preço'].median(), inplace=True)
+# Verica sem ainda existe valores ausentes.
+df_csv['Preço'].isnull().sum()
+
+  #VALORES DUPLICADOS = 8
+print(df_csv.duplicated().sum())
+
+  # Removendo as duplicadas, matendo apenas as validas.
+print(df_csv.drop_duplicates(inplace=True))
+
+# Padronizar os nomes das cidades, ex: são paulo, para "São Paulo".
+df_csv['Cidade'] = df_csv['Cidade'].str.title()
+
+# Trocando os tipos do dados da coluna quantidade e data da compra.
+df_csv['Quantidade'] = pd.to_numeric(df_csv['Quantidade'], errors='coerce')
+df_csv['Data_Compra'] = pd.to_datetime(df_csv['Data_Compra'], errors='coerce')
+
+# Exploração inicial após limpeza
+print(df_csv.describe())
+
+# Na parte de criar uma nova coluna, vai ter a de Valor_ total, onde a coluna
+# preço se multiplica com a de quantidade.
+df_csv['Valor_Total'] = df_csv['Preço'] * df_csv['Quantidade']
+
+# Gráfico de distribuição
+plt.figure(figsize=(10, 6))
+sns.histplot(df_csv['Idade'], bins=20, kde=True)
+plt.title('Distribuição de Idades')
+plt.xlabel('Idade')
+plt.ylabel('Frequência(Pessoas)')
+
+print(df_csv.dtypes)
+
+# Filtra apenas colunas numéricas
+df_numerico = df_csv.select_dtypes(include='number')
+
+# Gera o gráfico de correlação
+plt.figure(figsize=(10, 6))
+sns.heatmap(df_numerico.corr(), annot=True, cmap='coolwarm')
+plt.title('Matriz de Correlação')
+plt.show()
+
+# Base limpa em csv
+df_csv.to_csv('base_limpa.csv', index=False)
+
+from google.colab import files
+files.download("base_limpa.csv")
+
+
+  

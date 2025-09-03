@@ -44,6 +44,36 @@ gcc ex1.c -o ex1
 ./ex1
 (Substitua ex1 pelo número do exercício desejado.)
 
+📝 Como os ponteiros foram utilizados nos exercícios
+
+Exercício 1 – Cofrinho
+
+Ponteiro usado para acessar e mostrar o valor de uma variável inteira e o endereço de memória.
+
+Exercício 2 – Idade de um aluno
+
+Ponteiro usado para imprimir o valor digitado e o endereço onde a idade foi armazenada.
+
+Exercício 3 – Preços de produtos
+
+Ponteiro percorre um vetor de preços e calcula descontos acessando elementos com aritmética de ponteiros.
+
+Exercício 4 – Horas de funcionários
+
+Uso de alocação dinâmica (malloc) com ponteiros para criar um vetor cujo tamanho é informado pelo usuário.
+
+Exercício 5 – Notas de alunos
+
+Ponteiro acessa as notas e imprime os valores em ordem invertida usando aritmética de ponteiros.
+
+Exercício 6 – Matriz 3x3 de notas
+
+Ponteiro percorre uma matriz como se fosse um vetor linear de 9 elementos e soma a diagonal principal.
+
+Exercício 7 – Partida de vôlei (matriz 4x4)
+
+Ponteiro utilizado para percorrer a matriz, contar pares/ímpares, calcular soma por jogador e set, médias e identificar o jogador mais regular.
+
 👨‍🏫 Autor
 Marcus Mikael Rodrigues Vieira
 Disciplina: Estrutura de Dados

@@ -169,3 +169,78 @@ FROM usuario u
 LEFT JOIN emprestimo e ON u.id = e.id_usuario
 GROUP BY u.nome
 HAVING COUNT(e.id) > 1;
+
+-- Autor do livro (FUNCTION)
+CREATE FUNCTION autor_do_livro(p_id INT)
+RETURNS VARCHAR AS $$
+DECLARE v_nome VARCHAR;
+BEGIN
+  v_nome = (select nome from autor where id = p_id);
+  IF v_nome IS NULL THEN
+  return 'Autor não existe';
+  ELSE
+  return v_nome;
+  END IF;
+  return v_nome;
+  END;
+  $$ LANGUAGE plpgsql;
+
+  select autor_do_livro(1)
+
+-- Livro emprestado (FUNCTION)
+CREATE FUNCTION livro_emprestado(p_id INT)
+RETURNS VARCHAR AS $$
+DECLARE v_devolucao DATE;
+BEGIN
+  v_devolucao = (select data_devolucao from emprestimo where id_livro = p_id );
+  IF v_devolucao IS NULL THEN
+  RETURN 'Livro emprestado';
+  ELSE
+  RETURN 'Livro disponivel';
+  END IF;
+  RETURN v_devolucao;
+  END;
+  $$ LANGUAGE plpgsql;
+
+select livro_emprestado(3)
+
+-- Usuario com atraso (FUNCTION)
+CREATE FUNCTION usuario_com_atraso(p_id INT)
+RETURNS VARCHAR AS $$
+DECLARE v_qtd INT;
+BEGIN
+  v_qtd = (SELECT COUNT(*)FROM emprestimo WHERE id_usuario = p_id AND data_devolucao IS NULL AND data_emprestimo < CURRENT_DATE - INTERVAL '10 days');
+  IF v_qtd > 0 THEN
+  return 'Usuario possui livros atrasados';
+  ELSE 
+  return 'Usuario em dia';
+  END IF;
+  return 'Usuario em dia';
+  END;
+  $$ LANGUAGE plpgsql;
+
+select usuario_com_atraso(3);
+
+-- Funçao de soma (FUNCTION)
+ALTER TABLE emprestimo ADD COLUMN valor NUMERIC(10,2);
+-- UPDATE
+UPDATE emprestimo SET valor = 5.00 WHERE id = 1; 
+UPDATE emprestimo SET valor = 7.50 WHERE id = 2; 
+UPDATE emprestimo SET valor = 6.00 WHERE id = 3; 
+UPDATE emprestimo SET valor = 4.50 WHERE id = 4; 
+UPDATE emprestimo SET valor = 8.00 WHERE id = 5; 
+
+CREATE FUNCTION total_gasto_usuario(p_id INT)
+RETURNS NUMERIC AS $$
+DECLARE v_total NUMERIC;
+BEGIN
+  v_total = (select SUM(valor) from emprestimo where id_usuario = p_id);
+  if v_total IS NULL THEN
+     v_total = 0;
+  end if;
+
+  return v_total;
+  END;
+  $$ LANGUAGE plpgsql;
+
+select total_gasto_usuario(4)

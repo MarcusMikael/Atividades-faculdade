@@ -60,8 +60,7 @@ Foram usadas aqui para:
 📂 sistema-biblioteca
 ┣ 📜 biblioteca.sql → Contém todas as tabelas, inserts, procedures, views e functions
 ┣ 📜 README.md → Explicação do projeto e instruções
-┗ 📂 imagens
-┗ 📜 DER.png → Diagrama do banco de dados
+┗ 📜 biblioteca.drawio.pdf → Diagrama do banco de dados
 
 ---
 

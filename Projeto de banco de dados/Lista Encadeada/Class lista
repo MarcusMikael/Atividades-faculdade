@@ -1,0 +1,33 @@
+public class lista {
+	No inicio;
+	
+	public void inserir(int valor) {
+		No novoNo = new No(valor);
+		
+		if(inicio == null) {
+			inicio = novoNo;
+		} else {
+			No noAtual = inicio;
+			while (noAtual.prox != null) {
+				noAtual = noAtual.prox;
+				
+			}
+			noAtual.prox = novoNo;
+		}
+	}
+
+
+	public void listar () {
+		if(inicio == null) {
+			System.out.print("Lista Vazia");
+		} else {
+			No noAtual = inicio;
+			while(noAtual.prox != null) {
+				System.out.println("No: " + noAtual.valor);
+				noAtual = noAtual.prox;
+			}
+			System.out.println("No: " + noAtual.valor);
+		}
+	}
+
+}

@@ -1,1 +1,14 @@
 
+public class main {
+
+	public static void main(String[] args) {
+		
+		Lista l = new Lista;
+		l.inserir(8);
+		l.inserir(15);
+		l.inserir(31);
+		l.listar;
+
+	}
+
+}

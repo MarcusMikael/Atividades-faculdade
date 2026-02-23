@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Portal do Aluno</title>
+    </head>
 
+    <body>
+        <header>
+            <h1>Portal do Aluno</h1>
+        </header>
+
+    <nav>
+        <ul>
+            <li><a href="#dados">Dados Pessoais</a></li>
+            <li><a href="#curso">Cursos</a></li>
+            <li><a href="#horarios">Horarios</a></li>
+        </ul>
+    </nav>
+    <hr>
+
+    <main>
+        <section id="dados">
+            <h2>Dados Pessoais</h2>
+            <img src="img/aluno.png.webp" alt="Foto do aluno João Silva" width="200" height="150">
+            <p>Nome: João da Silva</p>
+            <p>Email: joao@email.com</p>
+        </section>
+        <hr>
+
+        <section id="curso">
+            <h2>Informações do Curso</h2>
+            <p>Curso: Engenharia de Software</p>
+            <p>Semestre: 3°</p>
+
+            <h3>Progresso no Curso</h3>
+            <p>60% concluído</p>
+            <progress value="60" max="100">60 %</progress>
+
+            <h3>Desempenho Geral</h3>
+            <p>Média: 8.5</p>
+            <progress value="8.5" max="10.0">80 %</progress>
+        </section>
+        <hr>
+
+        <section id="horarios">
+            <h2>Grade de Horários</h2>
+            <h3 align="center">Horarios Semanais</h3>
+
+             <table align="center" border="1">
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Segunda</th>
+                        <th>Terça</th>
+                        <th>Quarta</th>
+                        <th>Quinta</th>
+                        <th>Sexta</th>
+                    </tr>
+                     </thead>
+                <tbody>
+                    <tr>
+                        <td>19:00 - 20:00</td>
+                        <td>HTML</td>
+                        <td>Algoritimos</td>
+                        <td>Banco de Dados</td>
+                        <td>Redes</td>
+                        <td>POO</td>
+                    </tr>
+                    </tbody>
+            </table>
+
+        </section>
+    </main>
+    </body>
+
+    <footer>
+        <p align="center">© 2026 Faculdade Santo Agostinho</p>
+    </footer>
+</html>

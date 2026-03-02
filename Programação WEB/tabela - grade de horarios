@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela</title>
+</head>
+<table border="1">
+    <thead>
+        <tr>
+            <th colspan="5" align="center">Grade de Horários - Manhã</th>
+        </tr>
+        <tr>
+            <th>Horário</th>
+            <th>Segunda</th>
+            <th>Terça</th>
+            <th>Quarta</th>
+            <th>Quinta</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>07:00 - 08:30</td>
+            <td rowspan="2">Algoritimos</td>
+            <td>Banco de dados</td>
+            <td rowspan="2">Eng. Software</td>
+            <td>Redes</td>
+        </tr>
+        <tr>
+            <td>08:30 - 09:30</td>
+            <td>Banco de dados</td>
+            <td>Redes</td>
+        </tr>
+        <tr>
+            <td>09:30 - 10:00</td>
+            <th colspan="4">LANCHE</th>
+        </tr>
+        <tr>
+            <td>10:00 - 11:30</td>
+            <td>POO</td>
+            <td rowspan="2">Projeto de Software</td>
+            <td>Computação Gráfica</td>
+            <td rowspan="2">Laboratório</td>
+        </tr>
+        <tr>
+            <td>11:30 - 13:30</td>
+            <td>POO</td>
+            <td>Computação Gráfica</td>
+        </tr>
+    </tbody>
+</table>
+
+</html>

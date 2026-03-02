@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" <title>Portal de Tecnologia</title>
+</head>
+
+<body>
+    <header id="topo">
+        <h1>Portal de Tecnologias</h1>
+        <p>Notícias e conteudos sobre computação</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#topo">Início</a></li>
+            <li><a href="#artigos">Artigos</a></li>
+            <li><a href="#dica">Dica do dia</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="artigos">
+            <h2>Últimos Artigos</h2>
+            <article>
+                <h3>O que é HTML Semântico?</h3>
+                <p>HTML semântico utiliza tags com significado para estruturar melhor o conteúdo da página</p>
+                <time datetime="2026-03-01">01/03/2026</time>
+            </article>
+
+            <article>
+                <h3>Introdução ao CSS</h3>
+                <p>CSS é utilizado para estilizar páginas web, separando estrutura e apresentação.</p>
+                <time datetime="2026-02-20">20/02/2026</time>
+            </article>
+        </section>
+
+        <aside id="dica">
+            <h2>Dica do dia</h2>
+            <p>Use HTML semântico para melhorar acessibilidade e SEO</p>
+        </aside>
+    </main>
+
+    <footer id="contato">
+        <p>&copy; 2026 Portal de Tecnologia - Todos os direitos reservados</p>
+        <address>Contato: contato@portaltech.com</address>
+        <p><a href="#topo">Voltar ao topo</a></p>
+    </footer>
+    
+</body>
+</html>
